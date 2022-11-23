@@ -8,4 +8,4 @@
 # Info about the structure:
 
 ## Bank web_server
-This branch contains the work in progress code for the bank web server
+ - This branch contains the work in progress code for the bank web server
