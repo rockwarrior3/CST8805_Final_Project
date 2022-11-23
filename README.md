@@ -5,7 +5,7 @@
 #### Franca
 #### Ken
 
-# Info about the structure:\n Main branch is where semi polished work goes 
+# Info about the structure:<br>Main branch is where semi polished work goes 
 
 ##
 
