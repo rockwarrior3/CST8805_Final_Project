@@ -1,4 +1,4 @@
-# CST8805_Final_Project
+# CST8805 Final Project
 ### Contributors: 
 #### Robert Kerr 
 #### Martin
