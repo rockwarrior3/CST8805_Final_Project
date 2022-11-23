@@ -1,8 +1,9 @@
 # CST8805_Final_Project
-### Robert Kerr 
-### Martin
-### Franca
-### Ken
+###Contributors: 
+#### Robert Kerr 
+#### Martin
+#### Franca
+#### Ken
 
 # Info about the structure:
 
