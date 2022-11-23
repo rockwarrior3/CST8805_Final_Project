@@ -9,7 +9,7 @@
 
 ## Main branch
  - This is where semi polished work goes 
-## [Bank web_server - https://github.com/rockwarrior3/CST8805_Final_Project/blob/bank_web_server/README.md]
+## [Bank web_server](https://github.com/rockwarrior3/CST8805_Final_Project/blob/bank_web_server/README.md)
  - This branch contains the work in progress code for the bank web server
  - https://github.com/rockwarrior3/CST8805_Final_Project/blob/bank_web_server/README.md
 
