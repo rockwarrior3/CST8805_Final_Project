@@ -5,9 +5,9 @@
 #### Franca
 #### Ken
 
-# Info about the structure:
+# Info about the structure:\n Main branch is where semi polished work goes 
 
-## Main branch is where semi polished work goes
+##
 
 ## Bank web_server
  - This branch contains the work in progress code for the bank web server
