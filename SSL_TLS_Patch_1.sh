@@ -2,20 +2,7 @@
 
 #create and write to file
 touch /home/student/ssl-paramas.conf
-echo 'SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
-SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
-SSLHonorCipherOrder On
-# Disable preloading HSTS for now.  You can use the commented out header line that includes
-# the "preload" directive if you understand the implications.
-# Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-Header always set X-Frame-Options DENY
-Header always set X-Content-Type-Options nosniff
-# Requires Apache >= 2.4
-SSLCompression off
-SSLUseStapling on
-SSLStaplingCache "shmcb:logs/stapling-cache(150000)"
-# Requires Apache >= 2.4.11
-SSLSessionTickets Off' >> /home/student/ssl-paramas.conf' >> /home/student/ssl-paramas.conf
+printf 'SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH\nSSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1\nSSLHonorCipherOrder On\n# Disable preloading HSTS for now.  You can use the commented out header line that includes\n# the "preload" directive if you understand the implications.\n# Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"\nHeader always set X-Frame-Options DENY\nHeader always set X-Content-Type-Options nosniff\n# Requires Apache >= 2.4\nSSLCompression off\nSSLUseStapling on\nSSLStaplingCache "shmcb:logs/stapling-cache(150000)"\n# Requires Apache >= 2.4.11\nSSLSessionTickets Off' >> /home/student/ssl-paramas.conf
 
 
 #change permisions 
