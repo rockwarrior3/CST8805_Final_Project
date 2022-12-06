@@ -19,6 +19,9 @@ sudo mv 000-default.conf /etc/apache2/sites-available
 #sudo chown root:root ssl.conf
 #sudo rm /etc/apache2/mods-enabled/ssl.conf
 #sudo mv ssl.conf /etc/apache2/mods-enabled/
+sudo mv /home/student/CST8805_Final_Project/CST8805_files/PleaseDontHackMe /var/www/html/
+sudo mv /var/www/html/PleaseDontHackMe /var/www/html/server_files
+
 echo done now starting services
 
 sudo a2enmod ssl
