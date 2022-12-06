@@ -1,5 +1,5 @@
 #!/bin/bash 
-
+echo moding files
 sudo rm /etc/apache2/conf-available/ssl-params.conf
 sudo chmod 644 ssl-params.conf
 sudo chown root:root ssl-params.conf
@@ -15,6 +15,11 @@ sudo chown root:root 000-default.conf
 sudo rm /etc/apache2/sites-available/000-default.conf
 sudo mv 000-default.conf /etc/apache2/sites-available
 
+sudo chmod 644 ssl.conf
+sudo chown root:root ssl.conf
+sudo rm /etc/apache2/mods-enabled/ssl.conf
+sudo mv ssl.conf /etc/apache2/mods-enabled/
+echo done now starting services
 
 sudo a2enmod ssl
 sudo a2enmod headers
