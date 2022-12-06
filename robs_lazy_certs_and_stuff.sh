@@ -16,6 +16,7 @@ echo notapplicable@realemailservice.com
 openssl req -new -x509 -outform pem -sha3-256 -set_serial 0xA -key CA_Priv.key -days 1095 -out CA_Root.cer
 
 #generate CRL
+mkdir clienttemp 
 touch certindex
 echo 01 > certserial
 echo 01 > crlnumber
@@ -73,7 +74,6 @@ openssl x509 -req -in Client.csr -CA CA_Root.cer -set_serial 0x300 -sha3-256 -CA
 openssl x509 -inform pem -in Client.cer -pubkey -out Client_Pub.key
 
 # transfer client's stuff into folder
-mkdir clienttemp 
 mv Client_Priv.key clienttemp 
 mv Client.csr clienttemp 
 mv Client.cer clienttemp 
