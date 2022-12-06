@@ -1,5 +1,6 @@
 #!/bin/bash
 #private key creation/certificate creation
+mkdir CST8805_files
 openssl genpkey -outform pem -algorithm rsa -pkeyopt rsa_keygen_bits:2048 -aes-256-cbc -pass pass:CyB@ter123 -out CA_Priv.key
 clear
 echo CA stuff
