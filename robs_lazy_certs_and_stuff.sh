@@ -13,7 +13,7 @@ echo bankca.co
 echo bankcasigners
 echo www.wesignstuffforyou.com
 echo notapplicable@realemailservice.com
-openssl req -new -x509 -outform pem -sha3-256 -set_serial 0xA -key CA_Priv.key -days 1095 -out CA_Root.cer
+openssl req -new -x509 -outform pem -sha-256 -set_serial 0xA -key CA_Priv.key -days 1095 -out CA_Root.cer
 
 #generate CRL
 mkdir CRLStuff
@@ -54,7 +54,7 @@ echo heistlessbank
 echo www.heistless.com
 echo pleasedontrobus@verysecureemail.com
 openssl req -new -outform pem -key Web_Priv.key -out Web.csr
-openssl x509 -req -in Web.csr -CA CA_Root.cer -set_serial 0x200 -sha3-256 -CAkey CA_Priv.key -days 365 -extfile WebSrv.txt -out Web.cer
+openssl x509 -req -in Web.csr -CA CA_Root.cer -set_serial 0x200 -sha-256 -CAkey CA_Priv.key -days 365 -extfile WebSrv.txt -out Web.cer
 openssl x509 -inform pem -in Web.cer -pubkey -out Web_Pub.key
 
 # transfer Web server's stuff into folder
@@ -75,7 +75,7 @@ echo CA
 echo ON
 echo Ottawa
 openssl req -new -outform pem -key Client_Priv.key -out Client.csr
-openssl x509 -req -in Client.csr -CA CA_Root.cer -set_serial 0x300 -sha3-256 -CAkey CA_Priv.key -days 365 -extfile UserSign.txt -out Client.cer
+openssl x509 -req -in Client.csr -CA CA_Root.cer -set_serial 0x300 -sha-256 -CAkey CA_Priv.key -days 365 -extfile UserSign.txt -out Client.cer
 openssl x509 -inform pem -in Client.cer -pubkey -out Client_Pub.key
 
 # transfer client's stuff into folder
@@ -99,7 +99,7 @@ echo evilinc
 echo www.willrobu.com
 echo evil@stuff.com
 openssl req -new -outform pem -key rovked_Priv.key -out rovked.csr
-openssl x509 -req -in rovked.csr -CA CA_Root.cer -set_serial 0x400 -sha3-256 -CAkey CA_Priv.key -days 365 -extfile UserSign.txt -out rovked.cer
+openssl x509 -req -in rovked.csr -CA CA_Root.cer -set_serial 0x400 -sha-256 -CAkey CA_Priv.key -days 365 -extfile UserSign.txt -out rovked.cer
 openssl x509 -inform pem -in rovked.cer -pubkey -out rovked_Pub.key
 ca -config openssl.cnf -revoke rovked.cer -keyfile CA_Priv.key -cert CA_Root.cer
 
@@ -124,7 +124,7 @@ echo oldinc
 echo www.old.com
 echo old@things.com
 openssl req -new -outform pem -key expired_Priv.key -out expired.csr
-openssl x509 -req -in expired.csr -CA CA_Root.cer -set_serial 0x500 -sha3-256 -CAkey CA_Priv.key -days 0 -extfile UserSign.txt -out expired.cer
+openssl x509 -req -in expired.csr -CA CA_Root.cer -set_serial 0x500 -sha-256 -CAkey CA_Priv.key -days 0 -extfile UserSign.txt -out expired.cer
 openssl x509 -inform pem -in expired.cer -pubkey -out expired_Pub.key
 
 #transfer expired clients stuff into folder
@@ -153,7 +153,7 @@ echo invalidinc
 echo www.invalid.com
 echo invalid@fsr.com
 openssl genpkey -outform pem -algorithm rsa -pkeyopt rsa_keygen_bits:2048 -aes-256-cbc -pass pass:CyB@ter123 -out invalid_Priv.key
-openssl req -new -x509 -outform pem -sha3-256 -set_serial 0xB -key invalid_Priv.key -days 1095 -out invalid_Root.cer
+openssl req -new -x509 -outform pem -sha-256 -set_serial 0xB -key invalid_Priv.key -days 1095 -out invalid_Root.cer
 openssl x509 -inform pem -in invalid_Root.cer -pubkey -out invalid_Pub.key
 
 #transfer invalid clients stuff into folder
