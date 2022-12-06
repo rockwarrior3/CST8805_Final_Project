@@ -10,6 +10,12 @@ sudo chown root:root default-ssl.conf
 sudo rm /etc/apache2/sites-available/default-ssl.conf
 sudo mv default-ssl.conf /etc/apache2/sites-available
 
+sudo chmod 644 000-default.conf
+sudo chown root:root 000-default.conf
+sudo rm /etc/apache2/sites-available/000-default.conf
+sudo mv 000-default.conf /etc/apache2/sites-available
+
+
 sudo a2enmod ssl
 sudo a2enmod headers
 sudo a2enconf ssl-params
