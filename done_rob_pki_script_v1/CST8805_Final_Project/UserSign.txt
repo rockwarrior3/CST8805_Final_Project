@@ -1,0 +1,2 @@
+keyUsage=digitalSignature, nonRepudiation
+crlDistributionPoints=URI:https://www.heistsless.com/CA_CRL.crl.pem
