@@ -103,7 +103,6 @@ mv rovked.csr clienttemp/revoked
 mv rovked_Priv.key clienttemp/revoked
 mv rovked.cer clienttemp/revoked
 mv rovked_Pub.key clienttemp/revoked
-mv CA_Root.cer clienttemp/revoked
 
 
 #generate expired key and cert ##TODO##
@@ -129,6 +128,13 @@ mv expired.csr clienttemp/expired
 mv expired.cer clienttemp/expired
 mv expired_Pub.key clienttemp/expired
 
+#transfer pki's stuff into folder
+mkdir notpkiserver
+mv CA_Priv.key notpkiserver
+mv CA_Root.cer notpkiserver
+mv CA_CRL.crl.pem notpkiserver
+mv notpkiserver CST8805_files
+
 #generate invalid clients key and cert ##TODO##
 clear
 echo ---- invalid clients sutff ---
@@ -149,13 +155,6 @@ mkdir clienttemp/invalid
 mv invalid_Priv.key clienttemp/invalid
 mv invalid_Root.cer clienttemp/invalid
 mv invalid_Pub.key clienttemp/invalid
-
-#transfer pki's stuff into folder
-mkdir notpkiserver
-mv CA_Priv.key notpkiserver
-mv CA_Root.cer notpkiserver
-mv CA_CRL.crl.pem notpkiserver
-mv notpkiserver CST8805_files
 
 #move clienttemp to right location
 mv clienttemp CST8805_files
