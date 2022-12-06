@@ -16,21 +16,27 @@ echo notapplicable@realemailservice.com
 openssl req -new -x509 -outform pem -sha3-256 -set_serial 0xA -key CA_Priv.key -days 1095 -out CA_Root.cer
 
 #generate CRL
+mkdir CRLStuff
+mkdir PleaseDontHackMe
 touch certindex
 echo 01 > certserial
 echo 01 > crlnumber
 touch index.txt
 touch serial
 echo 01 > serial
+cp certindex CRLStuff
+cp certserial CRLStuff
+cp crlnumber CRLStuff
+cp index.txt CRLStuff
+cp serial CRLStuff
 openssl ca -config openssl.cnf -gencrl -keyfile CA_Priv.key -cert CA_Root.cer -out CA_CRL.crl.pem
-mkdir CRLStuff
-mkdir PleaseDontHackMe
 mv certindex CRLStuff
 mv certserial CRLStuff
 mv crlnumber CRLStuff
 mv index.txt CRLStuff
 mv serial CRLStuff
 cp CA_CRL.crl.pem PleaseDontHackMe
+cp CA_CRL.crl.pem /home/student
 mv CA_CRL.crl.pem CRLStuff
 mv openssl.cnf CRLStuff
 
