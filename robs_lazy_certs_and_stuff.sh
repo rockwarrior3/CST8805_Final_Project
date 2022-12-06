@@ -157,3 +157,6 @@ mv CA_Priv.key notpkiserver
 mv CA_Root.cer notpkiserver
 mv CA_CRL.crl.pem notpkiserver
 mv notpkiserver CST8805_files
+
+#run webserver patch script
+./ssl-params.conf
