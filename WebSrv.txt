@@ -1,0 +1,4 @@
+keyUsage=digitalSignature
+extendedKeyUsage=serverAuth
+crlDistributionPoints=URI:https://www.heistsless.com/CA_CRL.crl.pem
+subjectAltName=DNS:www.heistsless.com
