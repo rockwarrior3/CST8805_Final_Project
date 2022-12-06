@@ -158,6 +158,3 @@ mv invalid_Pub.key clienttemp/invalid
 
 #move clienttemp to right location
 mv clienttemp CST8805_files
-
-#run webserver patch script
-./ssl-params.conf
