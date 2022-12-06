@@ -149,7 +149,7 @@ echo "<IfModule mod_ssl.c>
 	</VirtualHost>
 </IfModule>
 
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet" >> /home/student/default-ssl.conf
+syntax=apache ts=4 sw=4 sts=4 sr noet" >> /home/student/default-ssl.conf
 
 sudo chmod 644 /home/student/default-ssl.conf
 sudo chown root:root /home/student/default-ssl.conf
@@ -191,7 +191,7 @@ echo "<VirtualHost *:80>
 	#Include conf-available/serve-cgi-bin.conf
 </VirtualHost>
 
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet" >> /home/student/000-default.conf
+syntax=apache ts=4 sw=4 sts=4 sr noet" >> /home/student/000-default.conf
 
 sudo chmod 644 /home/student/000-default.conf
 sudo chown root:root /home/student/000-default.conf
