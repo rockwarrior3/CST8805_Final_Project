@@ -148,7 +148,7 @@ echo www.invalid.com
 echo invalid@fsr.com
 openssl genpkey -outform pem -algorithm rsa -pkeyopt rsa_keygen_bits:2048 -aes-256-cbc -pass pass:CyB@ter123 -out invalid_Priv.key
 openssl req -new -x509 -outform pem -sha3-256 -set_serial 0xB -key invalid_Priv.key -days 1095 -out invalid_Root.cer
-openssl x509 -inform pem -in invalid.cer -pubkey -out invalid_Pub.key
+openssl x509 -inform pem -in invalid_Root.cer -pubkey -out invalid_Pub.key
 
 #transfer invalid clients stuff into folder
 mkdir clienttemp/invalid
