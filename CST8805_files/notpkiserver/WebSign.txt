@@ -1,4 +1,0 @@
-keyUsage=digitalSignature
-extendedKeyUsage=serverAuth
-crlDistributionPoints=URI:http://projectcsa.csa/CAProject.crl
-subjectAltName=DNS:www.bankcsa.csa

@@ -1,2 +1,0 @@
-keyUsage=digitalSignature, nonRepudiation
-crlDistributionPoints=URI:http://projectcsa.csa/CAProject.crl 
