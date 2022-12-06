@@ -1,5 +1,6 @@
 #!/bin/bash 
 echo moding files
+cp -r done_rob_pki_script_v1/CST8805_Final_Project/CST8805_files/ .
 sudo rm /etc/apache2/conf-available/ssl-params.conf
 sudo chmod 644 ssl-params.conf
 sudo chown root:root ssl-params.conf
