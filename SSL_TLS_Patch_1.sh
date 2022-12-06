@@ -91,7 +91,6 @@ echo "<IfModule mod_ssl.c>
 		#   Set various options for the SSL engine.
 		#   o FakeBasicAuth:
 		#	 Translate the client X.509 into a Basic Authorisation.  This means that
-		#	 the standard Auth/DBMAuth methods can be used for access control.  The
 		#	 user name is the `one line' version of the client's X.509 certificate.
 		#	 Note that no password is obtained from the user. Every entry in the user
 		#	 file needs this password: `xxj31ZMTZzkVA'.
