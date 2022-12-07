@@ -24,20 +24,20 @@ echo " <p style='color:blue; font-size:1.5em;'> File Upload Results</p> ";
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-  echo "&nbsp &nbsp &nbsp Sorry, your file is too large.";
+  echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp Sorry, your file is too large.";
   $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-  echo "&nbsp &nbsp &nbsp Sorry, your file was not uploaded. ";
+  echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp Sorry, your file was not uploaded. </p>";
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUploadSig"]["tmp_name"], $target_fileSig) && move_uploaded_file($_FILES["fileToUploadX509"]["tmp_name"], $target_fileX509)) {
 //    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " and its digital signature have been uploaded. <br>";
-      echo "&nbsp &nbsp &nbsp Files successfully uploaded to Bank Payroll Application <br>";
+      echo "<p style='color:green; font-size:1.5em;'>&nbsp &nbsp &nbsp Files successfully uploaded to Bank Payroll Application <br></p>";
   } else {
-    echo "&nbsp &nbsp &nbsp  Sorry, there was an error uploading your file. ";
+    echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp  Sorry, there was an error uploading your file.</p> ";
     $uploadOk = 0;
   }
 }
@@ -67,19 +67,34 @@ if  ($uploadOk !== 0) {
   $test_string = "OK";
   $test = trim($test);
   if ($test == "OK"){
-    echo "&nbsp &nbsp &nbsp CRL Verified";
+    echo "<p style='color:green; font-size:1.5em;'>&nbsp &nbsp &nbsp CRL Verified</p>";
   }
   else{
-    echo "&nbsp &nbsp &nbsp CRL Rejected";
+    echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp CRL Rejected</p>";
+    
+  }
+  $sign = "openssl verify -verbose -CAfile /var/www/html/server_files/CA_Root.cer $target_fileX509";
+  $valRes = shell_exec( $sign );
+  $test = substr($valRes, strpos($valRes, ":") + 1); 
+  $test_string = "OK";
+  $test = trim($test);
+  if ($test == "OK"){
+    echo "<p style='color:green; font-size:1.5em;'> &nbsp &nbsp &nbsp Certificate was signed by the proper CA</p>";
+  }
+  else{
+    echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp x509 cert was not singed by the proper CA</p>";
     
   }
 	echo " <p style='color:blue; font-size:1.5em;'> Payroll Signature Validation Results via shell_exec() method</p> ";
 	$valRes = shell_exec( $cmd );
-	echo "&nbsp &nbsp &nbsp $valRes";
+  $test = substr($valRes, strpos($valRes, " ") + 1); 
+  if ($test == "failure"){
+    echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp $valRes</p>";
+  }
+  else{
+    echo "<p style='color:green; font-size:1.5em;'>&nbsp &nbsp &nbsp $valRes</p>";
+    
+  }
 }
-// check against CRL
-// input santiization?
 
-
-// create python script to test connections using ssl with curl
 ?>
