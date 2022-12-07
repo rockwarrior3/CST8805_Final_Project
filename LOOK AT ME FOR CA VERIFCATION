@@ -1,0 +1,12 @@
+// Checking out signed file
+  $check = "openssl verify -verbose -CAfile /var/www/html/server_files/CA_Root.cer $target_fileX509"
+  $valRes = shell_exec( $check );
+  $ch = substr($valRes, strpos($valRes, ":") + 1);
+  $ch = trim($ch);
+  if ($ch == "OK"){
+    echo "&nbsp &nbsp &nbsp Certificate was signed by the proper CA"; 
+  }
+  else{
+    echo "&nbsp &nbsp &nbsp x509 cert was not singed by the proper CA"; 
+  }
+//check who signed
