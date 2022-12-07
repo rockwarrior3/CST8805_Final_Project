@@ -23,6 +23,13 @@ sudo mv 000-default.conf /etc/apache2/sites-available
 sudo mv /home/student/CST8805_Final_Project/CST8805_files/PleaseDontHackMe /var/www/html/
 sudo mv /var/www/html/PleaseDontHackMe /var/www/html/server_files
 
+sudo chmod 644 upload.php
+sudo chmod 644 upload.html
+sudo rm /var/www/html/upload.html
+sudo rm /var/www/html/upload.php
+sudo mv upload.php /var/www/html/
+sudo mv upload.html /var/www/html/
+
 echo done now starting services
 
 sudo a2enmod ssl
