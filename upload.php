@@ -90,6 +90,7 @@ if  ($uploadOk !== 0) {
 	echo " <p style='color:blue; font-size:1.5em;'> Payroll Signature Validation Results via shell_exec() method</p> ";
 	$valRes = shell_exec( $cmd );
   $test = substr($valRes, strpos($valRes, " ") + 1); 
+  $test = trim($test);
   if ($test == "failure"){
     echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp $valRes</p>";
   }
