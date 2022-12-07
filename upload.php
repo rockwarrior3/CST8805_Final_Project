@@ -73,16 +73,18 @@ if  ($uploadOk !== 0) {
     echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp CRL Rejected</p>";
     
   }
-  $sign = "openssl verify -verbose -CAfile /var/www/html/server_files/CA_Root.cer $target_fileX509";
-  $valRes = shell_exec( $sign );
+  // Checks validity of cert
+  $sign = "openssl verify -verbose -CAfile /var/www/html/server_files/CA_Root.cer $target_fileX509 2>&1";
+  $valRes = exec( $sign, $output );
+  $output = substr($output[1], strpos($output[1], ":") + 1); 
   $test = substr($valRes, strpos($valRes, ":") + 1); 
   $test_string = "OK";
   $test = trim($test);
   if ($test == "OK"){
     echo "<p style='color:green; font-size:1.5em;'> &nbsp &nbsp &nbsp Certificate was signed by the proper CA</p>";
   }
-  else{
-    echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp x509 cert was not singed by the proper CA</p>";
+  else {
+    echo "<p style='color:red; font-size:1.5em;'>&nbsp &nbsp &nbsp Error: $output</p>";
     
   }
 	echo " <p style='color:blue; font-size:1.5em;'> Payroll Signature Validation Results via shell_exec() method</p> ";
