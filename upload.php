@@ -8,6 +8,10 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $target_fileSig = $target_dir . basename($_FILES["fileToUploadSig"]["name"]);
 $target_fileX509 = $target_dir . basename($_FILES["fileToUploadX509"]["name"]);
 
+$target_file = preg_replace('/[^a-zA-Z0-9\/\.]/', '', $target_file);
+$target_fileSig = preg_replace('/[^a-zA-Z0-9\/\.]/', '', $target_fileSig);
+$target_fileX509 = preg_replace('/[^a-zA-Z0-9\/\.]/', '', $target_fileX509);
+
 $uploadOk = 1;
 
 // Check if file already exists
