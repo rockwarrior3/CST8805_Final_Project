@@ -30,6 +30,8 @@ sudo rm /var/www/html/upload.php
 sudo mv upload.php /var/www/html/
 sudo mv upload.html /var/www/html/
 
+sudo cp /home/student/CST8805_Final_Project/CST8805_files/notpkiserver/CA_Root.cer /var/www/html/server_files
+
 echo done now starting services
 
 sudo a2enmod ssl
